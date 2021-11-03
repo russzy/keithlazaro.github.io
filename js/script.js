@@ -1,0 +1,51 @@
+class Project {
+  constructor(title, body, techUsed, githubName, githubLink) {
+    this.title = title;
+    this.body = body;
+    this.tech = techUsed;
+    this.githubName = githubName;
+    this.githubLink = githubLink;
+  }
+}
+
+function createProjectEntry(projectEntry) {
+  const projectContainer = document.createElement("div");
+  const title = document.createElement("h3");
+  const body = document.createElement("p");
+  const tech = document.createElement("div");
+  const link = document.createElement("div");
+
+  projectContainer.classList.add("project-entries__project");
+
+  let hammer = '<i class="fas fa-hammer"></i> ';
+  let linkAnchor = `<i class="fab fa-github"></i> <a href="${projectEntry.githubLink}">${projectEntry.githubName}</a>`;
+
+  title.textContent = projectEntry.title;
+  body.insertAdjacentHTML("afterbegin", projectEntry.body);
+  tech.textContent = projectEntry.tech;
+  tech.insertAdjacentHTML("afterbegin", hammer);
+  link.insertAdjacentHTML("afterbegin", linkAnchor);
+
+  projectContainer.appendChild(title);
+  projectContainer.appendChild(body);
+  projectContainer.appendChild(tech);
+  projectContainer.appendChild(link);
+
+  projectsContainer.appendChild(projectContainer);
+}
+
+const projects = [
+  new Project(
+    "Food Recipe App",
+    "Food Recipe App that you can use to see the recipe of the foods. <a href='https://russzy.github.io/Food-Recipe-App//'>russzy.github.io</a> domain.",
+    "HTML, CSS, JavaScript",
+    "russzy/Food-Recipe-App",
+    "https://github.com/russzy/Food-Recipe-App"
+  ),
+];
+
+const projectsContainer = document.querySelector(".project-entries");
+
+for (let i = 0; i < projects.length; i++) {
+  createProjectEntry(projects[i]);
+}
