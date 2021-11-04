@@ -34,15 +34,7 @@ function createProjectEntry(projectEntry) {
   projectsContainer.appendChild(projectContainer);
 }
 
-const projects = [
-  new Project(
-    "Food Recipe App",
-    "Food Recipe App that you can use to see the recipe of the foods. <a href='https://russzy.github.io/Food-Recipe-App//'>russzy.github.io</a> domain.",
-    "HTML, CSS, JavaScript",
-    "russzy/Food-Recipe-App",
-    "https://github.com/russzy/Food-Recipe-App"
-  ),
-];
+const projects = [];
 
 const projectsContainer = document.querySelector(".project-entries");
 
